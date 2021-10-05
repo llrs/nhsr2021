@@ -9,6 +9,7 @@ output:
     lib_dir: libs
     css: ["nhsr-fonts", "nhsr", "css/my-style.css"]
     nature:
+      ratio: 16:9
       highlightStyle: github
       highlightLines: true
       countIncrementalSlides: false
@@ -16,6 +17,7 @@ output:
 
 ```{r setup, include=FALSE}
 options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(fig.retina = 3, warning = FALSE, message = FALSE, fig.height = 6, fig.width = 15)
 ```
 
 # About me
@@ -32,9 +34,11 @@ something
 
 # Improving process: not repeating ourselfs
 
-- Machines: Repeat actions
-- Templates: Repeat information
-- Software: Repeat logic
+- Machines: Repeat actions  
+
+- Templates: Repeat information  
+
+- Software: Repeat logic  
 
 ???
 
@@ -44,24 +48,164 @@ Our efforts are to reduce repetition by humans or making those faster, easier an
 
 # Improving process: science
 
-> testable explanations and predictions  
-> .right[[Wikipedia](https://en.wikipedia.org/wiki/Science)]
+> testable explanations and predictions
+> .center[[Wikipedia](https://en.wikipedia.org/wiki/Science)]
 
 ???
 
-Science a method of knowledge (there are others like mathematics, philosophy, theology, ...)
+Science a method of knowledge: there are others like mathematics, philosophy, theology, ...
 
 --
 
-[ ![ Table with data and analysis as axis ](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) ](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way")
 
-??? 
+.center[ ![Table with data and analysis as axis](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) ]
+
+.right[ [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
+
+
  
+
+???
 Missing part: code/logic
 
 ---
 
 # Improving process: code
 
+Better code:
+ Faster
+ Easier to understand
+ More modularized
+ Multiple times the same process -> function
+
+Better reports
+ Interface 
+ Appearance
+
+Packages!!
+
+---
+
+#  Packages
+
+Advantages
+
+Function checking
+Documentation
+
+Disadvantages
+
+No one
+
+---
+
+# Benefits for healthcare analytics
+
+More confidence
+Errors might be caught in advance (fixed in advance)
+Automated repetitive process
+Reduce effort
+
+---
+
+#  Examples
+
+REDCap: REduce individual efforts by making it easier for everybody. 
+
 GETS: multiple analysis of RNAseq data -> webpage/program
+
+---
+
+# When to write a package
+
+Around a central idea: a method, a program, a project, a report
+
+A salad of process: things you repeat (checking colum names match between two tables)
+
+
+Small: functions
+Medium: package
+Large: architectures
+
+---
+
+# How to develop internal pacakges
+
+If it is just you or few of you your own remote localization (git server).
+
+If it is shared maybe have an organization for it?
+
+--
+
+PR: new features
+Branches: New features, tests...
+
+??? 
+
+Maybe a workmate or someone from the department besides you
+
+---
+
+# How to use internal packages
+
+If you have your own Github organization you can use r-universe to gather the packages and make it easier to install them.
+
+Or just devtools::install_git(hub|lab)
+
+???
+
+This also helps to know if the work is reproducible and if the package works well for the users (and not just you)
+
+---
+
+# How and when to use external packages
+
+If you use RNAseq, 16S data design experiments: Bioconductor
+
+rOpenSci organization has also scientific tools: targets help with repeating software.
+
+
+???
+
+If you are already considering building your own package you will already be aware of other packages.
+
+
+---
+
+# Packages and process are not static
+
+Image of a river
+
+It is not always equal, you might need to modify the package
+Moving some functions to another package
+Do not remove functions, who knows when you'll need them back and it complicated to look up on the git history (you'll use git or vsc right?)
+
+---
+
+
+# Going back to the big picture
+
+
+![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png)
+
+.right[ [Gabe Becker Copyright Genentech Inc. ](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html) ]
+
+???
+
+[rOpenSci guide](http://ropensci.github.io/reproducibility-guide)
+[Gabe Becker's slides about reproducibility](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html)
+
+---
+
+
+
+# Conclusions
+
+Not complicated to have packages.
+Complicated to be consistent (new people, process change, people leave...)
+Packages is just a part that help with being reproducible and replicable, there are others. 
+  
+??? 
+
+Lots of information about the first point but not really explained here, for instance my [slides of a workshop](https://ghana.llrs.dev/) explain how to do it and have links to other content.
 
