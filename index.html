@@ -5,8 +5,27 @@
     <meta charset="utf-8" />
     <meta name="author" content="Lluís Revilla" />
     <script src="libs/header-attrs/header-attrs.js"></script>
+    <link href="libs/remark-css/default.css" rel="stylesheet" />
     <link href="libs/remark-css/nhsr-fonts.css" rel="stylesheet" />
     <link href="libs/remark-css/nhsr.css" rel="stylesheet" />
+    <link href="libs/tachyons/tachyons.min.css" rel="stylesheet" />
+    <meta name="github-repo" content="llrs/nhsr2021"/>
+    <meta name="twitter:title" content="Improving (analysis) process: developing packages"/>
+    <meta name="twitter:description" content="Invited talk about creating packages to help with reproducibility and research For NHS-R community"/>
+    <meta name="twitter:url" content="https://nhsr2021.llrs.dev"/>
+    <meta name="twitter:image" content="https://ghana_packages.llrs.dev/index_files/figure-html/title_slide_screenshot.png"/>
+    <meta name="twitter:image:alt" content="Image of the first slide for Reviewing packages; how does it work? . Done for the R User Group Ghana on 2021/10 by Lluís Revilla Sancho"/>
+    <meta name="twitter:card" content="summary_large_image"/>
+    <meta name="twitter:creator" content="@Lluis_Revilla"/>
+    <meta name="twitter:site" content="@Lluis_Revilla"/>
+    <meta property="og:title" content="Improving (analysis) process: developing packages"/>
+    <meta property="og:description" content="Invited talk about creating packages to help with reproducibility and research For NHS-R community"/>
+    <meta property="og:url" content="https://nhsr2021.llrs.dev"/>
+    <meta property="og:image" content="https://ghana_packages.llrs.dev/index_files/figure-html/title_slide_screenshot.png"/>
+    <meta property="og:image:alt" content="Image of the first slide for Reviewing packages; how does it work? . Done for the R User Group Ghana on 2021/10 by Lluís Revilla Sancho"/>
+    <meta property="og:type" content="website"/>
+    <meta property="og:locale" content="en_US"/>
+    <meta property="article:author" content="Lluís Revilla Sancho"/>
     <link rel="stylesheet" href="css/my-style.css" type="text/css" />
   </head>
   <body>
@@ -23,11 +42,28 @@ class: center, middle, inverse, title-slide
 
 
 
+
+
 # About me
 
-Bioinformatician at IDIBAPS a research center from [Hospital Clínic of Barcelona](https://www.clinicbarcelona.org/en/idibaps "Website").
-Using mostly R for research with multiple packages. 
+Bioinformatician at [CIBEREHD](https://www.ciberehd.org/en "CIBERHD's website") finishing my PhD at [IDIBAPS](https://www.clinicbarcelona.org/en/idibaps "IDIBAPS' website") a research center of the [Hospital Clinic de Barcelona](https://www.clinicbarcelona.org/en/ "Hospital's website").
 
+.pull-left[
+
+&lt;div class="figure"&gt;
+&lt;img src="images/hospital_clinic.jpg" alt="Source: Hospital Clínic de Barcelona" width="100%" /&gt;
+&lt;p class="caption"&gt;Source: Hospital Clínic de Barcelona&lt;/p&gt;
+&lt;/div&gt;
+
+]
+
+.pull-right[
+
+Using mostly R for research with multiple packages and developing and maintaining other packages, from implementing mathematical theories ([BaseSet](https://cran.r-project.org/package=BaseSet "Package for fuzzy set operations")), help designing experiments ([experDesign](https://cran.r-project.org/package=experDesign "Package to analyse samples in batches")), comparing annotations of genes ([BioCor](https://bioconductor.org/packages/BioCor "Comparing genes and pathways annotations")).
+
+And other packages unrelated to research: analysing R bugs ([bugRzilla](https://github.com/llrs/bugRzilla "Package still in development")) or the official state gazette of Spain ([BOE](https://ropenspain.github.io/BOE/ "BOE in Spanish acronym"))... 
+
+]
 
 ???
 
@@ -35,45 +71,334 @@ something
 
 ---
 
-# Improving process: not repeating ourselfs
+# Improving processes: not repeating ourselves
 
-- Machines: Repeat actions
-- Templates: Repeat information
-- Software: Repeat logic
+Much of the progress of humanity has come from simplifying:
+
+- Machines: Repeat actions  
+
+- Templates: Repeat information  
+
+- Software: Repeat logic  
 
 ???
 
 Our efforts are to reduce repetition by humans or making those faster, easier and more efficient.
 
+[TODO: Find image for each topic and add title above them]
+
 ---
 
-# Improving process: science
+# Science
 
-&gt; testable explanations and predictions  
-&gt; .right[[Wikipedia](https://en.wikipedia.org/wiki/Science)]
+
+.bg-washed-green.b--dark-green.ba.bw1.center[
+Is a systematic enterprise that builds and organizes knowledge in the form of testable explanations and predictions
+.tr[
+— [Wikipedia](https://en.wikipedia.org/wiki/Science)
+]]
+
 
 ???
 
-Science a method of knowledge (there are others like mathematics, philosophy, theology, ...)
+Science a method of knowledge: there are others like mathematics, philosophy, theology, ...
 
 --
 
-[ ![ Table with data and analysis as axis ](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) ](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way")
 
-??? 
+.center[ ![Table with data and analysis as axis](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) ]
+
+.right[ [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
+
+
  
+
+???
 Missing part: code/logic
 
 ---
 
-# Improving process: code
+# Code
 
-GETS: multiple analysis of RNAseq data -&gt; webpage/program
+Code:
+
+- Shareable
+- Easier to understand (sometimes)
+- More modularized
+- Repeat logic
+
+Better reports
+
+- Interface 
+- Appearance
+
+.middle[Packages!!]
+
+???
+
+Better code benefits the process and the result. 
+
+If reports are your main outcome they can also be automated via knitr parametrized reports or use interactive reports (See Simon Wellesley-miller talk tomorrow)
+
+---
+
+# From scripts to packages
+
+Use function (use other's packages)
+
+Write functions
+
+???
+
+Analysing some data might lead to a package or not.  
+
+Package should provide some non-trivial solution to other's.
+It might not be worth of publication (on traditional journals) but it might be worth sharing (on Journal of Open Source or just as a pakcage people can install). 
+
+---
+
+# When to write a package?
+
+After a search of a package that does solves your problem:
+
+## Around a central idea
+
+A method, a program, a project, a report (like REDCapR)
+
+## A salad of processes
+
+Things you repeat (checking column names, match between two tables)
+
+--
+
+.indent[
+
+**Small**: functions, `function(x){x+5}` 
+
+**Medium**: package, when some process is always the same or has few options.
+
+**Large**: architecture/worflow related,  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package
+
+]
+
+???
+
+Depending on your work if it is more research based probably package around an idea or a salad to make your life easier
+Because code in research most of them is run just once and few multiple times
+
+If it is more clinical perhaps you do more reporting, and you might be interested on a mix to retrieve data and explore it with reports, plots... 
+
+---
+
+# Brief introduction to packages
+
+Slide adapted from a [workshop](https://ghana.llrs.dev/#4) on how to develop packages.
+
+.left-column[
+
+&lt;img src="images/tidyverse_dtplyr.png" title="Tree view of the dtplyr package repository on 2021/08/06." alt="Tree view of the dtplyr package repository on 2021/08/06." width="100%" /&gt;
+
+]
+
+.right-column[
+
+- `.github` folder: Files specific to GitHub (this isn't necessary)
+- A `R` folder with *.R files: your code.
+- A `man` folder with *.rd files: your documentation.
+- A `tests` folder: Check the code of the package.
+- A `vignette` folder: Long documentation; not just examples.
+- A `.Rbuildignore`: A file describing what to omit when building the package.
+- A `DESCRIPTION` file: Summary and description of the package.
+- A `LICENSE` file: The conditions under the package is released.
+- A `NAMESPACE` file: What this package shares and needs.
+- A `NEWS` file: What has changed since last release.
+- A `README`: How to install and why this packages is needed and some basic examples.
+
+]
+
+???
+
+I recommend to look at it, but here are some resources:
+
+- [R extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html "Offical complete instructions"): Official documentation, everything is answered here
+- [R packages](https://r-pkgs.org/ "R pakages"): A book more digestible and using other packages and tools to create packages.
+
+
+---
+
+# Benefits for healthcare analytics
+
+- More confidence on results and process
+
+- Errors might be caught in advance (&amp; fixed in advance)
+
+- Automated repetitive process
+
+&gt; We’ve been using R with REDCap’s API since 2012 and have developed REDCapR. Before encapsulating these functions in a package, we were replicating 50+ lines of code to contact REDCap and robustly transform the returned csv into an R `data.frame`; it took twice that much to implement batching. All this can be done in one call to `redcap_read()`
+&gt;
+&gt; .right[[REDCapR's](https://cran.r-project.org/package=REDCapR) README]
+
+- Reduce effort (long term)
+
+&gt; For ease of sharing, documenting, and testing we wrapped these tools up into an R package. 
+&gt; 
+&gt; .right[ [Jay Hugues](https://medium.com/healthfdn-data-analytics/introducing-a-new-r-package-to-process-primary-care-data-88e863130ada#236b "Blog post on how a package was developed")]
+
+???
+
+We built a package (in perl) to automate a process on our lab:
+GETS: multiple analysis of RNA-seq data -&gt; webpage/program
+
+Documentation of process or why things are done that way
+
+Advantages
+
+ - Function checking
+ - Documentation
+
+Disadvantages
+
+ - More experience programming (not that much)
+
+
+Setting checks on scores (endoscopic scores, )
+To mitigate the disadvantage it is better paired with other tools like [renv](https://rstudio.github.io/renv/index.html).
+
+---
+
+# How and when to use external packages
+
+There are three ways: Depends, Imports, Suggests and Enhance
+
+**Depending** is equivalent of `library("package")`: If the package is not present it doesn't install. Enhancing is equivalent of Depends.
+
+**Import** is equivalent to `package::function()`: Only use some functions of the package.
+
+**Suggests** means that it is not needed for the whole package but just some parts.
+
+.details[
+
+Suggests requires more work before hand but makes it easier to install your package.
+
+You need to use:
+
+
+```r
+if (!requireNamespace("package", quiet = TRUE)) {
+  stop("We need this package")
+}
+package::function()
+```
+
+]
+
+???
+
+If you use RNA-seq, 16S data design experiments: [Bioconductor](https://bioconductor.org)
+
+[rOpenSci](https://ropensci.org) organization has also scientific tools: [targets](https://cran.r-project.org/package=targets) help avoiding rerunning the same steps.
+
+If you are already considering building your own package you will already be aware of other packages.
+
+---
+
+# How to develop internal pacakges
+
+If it is just you or few of you your own remote or shared localization.
+
+???
+
+Depending on the support of your IT department or your setup/computer facilities.
+Problems when editing the same file, I recommend using version control systems. 
+
+--
+
+If it is shared or you are trying to know if some more people might be interested, maybe on github or gitlab.
+
+Examples: 
+
+- [aurumpipeline](https://github.com/HFAnalyticsLab/aurumpipeline "Package to clean and process patient-level CPRD Aurum" )
+
+
+???
+
+Having this public or semi-public will make it easier a workmate or someone from the department besides you.
+It will make it easier to collaborate in case you release your package to the public.
+
+Internal packages are usually not shared outside the organization
+
+[medicaldata](https://higgi13425.github.io/medicaldata/index.html "Package with datasets for teaching") is another example but this is intended to be used by more people and as such is on CRAN. 
+
+---
+
+# How to use internal packages
+
+If you have your own Github organization you can use r-universe to gather the packages and make it easier to install them.
+
+
+???
+
+This also helps to know if the work is reproducible and if the package works well for the users (and not just you)
+
+---
+
+# Packages and process are not static
+
+It is not always equal, you might need to modify the package  
+Moving some functions to another package  
+Do not remove functions, who knows when you'll need them back and it complicated to look up on the git history (you'll use git or vsc right?)
+
+&lt;div class="figure"&gt;
+&lt;img src="images/La_palma_volcano_flow.jpg" alt="Image of the lava flow from palma, showing it exiting the cone, flowing and reaching the sea." width="50%" /&gt;
+&lt;p class="caption"&gt;Source: El País&lt;/p&gt;
+&lt;/div&gt;
+
+???
+
+At the beginning lots of activities and changes (eruption)
+
+On the middle less changes but they might take new paths (redefining functions or finding better ways to do the same thing)
+
+At the end the package development goes quiet but there is friction with changes on R and or other packages. 
+
+---
+
+
+# Going back to the big picture
+
+![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png "Link to the image")
+
+
+.right[ [Gabriel Becker, Copyright Genentech Inc. ](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html "Link to the slides with the original source") ]
+
+.center[Packages help to trust the reporting and implementation.]
+
+???
+
+[rOpenSci guide](http://ropensci.github.io/reproducibility-guide)
+[Gabe Becker's slides about reproducibility](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html)
+
+---
+
+
+# Conclusions
+
+Not complicated to have packages.
+
+Complicated to be consistent (new people, process change, people leave...)
+
+Packages is just a part that help with being reproducible and replicable, there are others. 
+  
+???
+
+Lots of information about the first point but not really explained here, for instance my [slides of a workshop](https://ghana.llrs.dev/) explain how to do it and have links to other content.
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script src="macros.js"></script>
 <script>var slideshow = remark.create({
+"ratio": "16:9",
 "highlightStyle": "github",
 "highlightLines": true,
 "countIncrementalSlides": false
@@ -160,6 +485,15 @@ if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
   }
   preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
 })(document);</script>
+<script>
+(function() {
+  var details = document.querySelectorAll(".details");
+  details.forEach(function (e) {
+    e.outerHTML = "<details><summary>Details</summary>" +
+      e.innerHTML + "</details>";
+  })
+})();
+</script>
 
 <script>
 slideshow._releaseMath = function(el) {
