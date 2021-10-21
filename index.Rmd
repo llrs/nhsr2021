@@ -110,9 +110,7 @@ Science a method of knowledge: there are others like mathematics, philosophy, th
 --
 
 
-.center[ ![Table with data and analysis as axis](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) ]
-
-.right[ [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
+.center[ ![Table with data and analysis as axis](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
 
 
  
@@ -165,23 +163,23 @@ It might not be worth of publication (on traditional journals) but it might be w
 
 After a search of a package that does solves your problem:
 
-## Around a central idea
+.pull-left[**Around a central idea**
 
-A method, a program, a project, a report (like REDCapR)
+A method, a program, a project, a report (like REDCapR)]
 
-## A salad of processes
+.pull-right[**A worflow/salad of processes**
 
-Things you repeat (checking column names, match between two tables)
+Things you repeat (checking column names, match between two tables), steps you can automatize between manual/visual inspection.]
 
 --
 
-.indent[
+.center[
 
 **Small**: functions, `function(x){x+5}` 
 
 **Medium**: package, when some process is always the same or has few options.
 
-**Large**: architecture/worflow related,  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package
+**Large**: architecture/workflow related,  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package
 
 ]
 
@@ -309,7 +307,7 @@ If you are already considering building your own package you will already be awa
 
 # How to develop internal pacakges
 
-If it is just you or few of you your own remote or shared localization.
+If it is just you or few of you: your own computer and then share collaboratively via your version control system.
 
 ???
 
@@ -330,7 +328,7 @@ Examples:
 Having this public or semi-public will make it easier a workmate or someone from the department besides you.
 It will make it easier to collaborate in case you release your package to the public.
 
-Internal packages are usually not shared outside the organization
+Internal packages are usually not shared outside the organization.
 
 [medicaldata](https://higgi13425.github.io/medicaldata/index.html "Package with datasets for teaching") is another example but this is intended to be used by more people and as such is on CRAN. 
 
@@ -338,8 +336,15 @@ Internal packages are usually not shared outside the organization
 
 # How to use internal packages
 
+Install from source each time (via `R CMD INSTALL` or `devtools::install`)
+
 If you have your own Github organization you can use r-universe to gather the packages and make it easier to install them.
 
+TODO: image of a wizard (installing packages)
+
+--
+
+Once installed use it normally as any other package on your reproducible environment.
 
 ???
 
@@ -370,12 +375,13 @@ At the end the package development goes quiet but there is friction with changes
 
 # Going back to the big picture
 
+Packages help trusting the reporting and implementation:
+
 ![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png "Link to the image")
 
 
 .right[ [Gabriel Becker, Copyright Genentech Inc. ](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html "Link to the slides with the original source") ]
 
-.center[Packages help to trust the reporting and implementation.]
 
 ???
 
