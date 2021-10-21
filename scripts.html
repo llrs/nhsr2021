@@ -1,0 +1,9 @@
+<script>
+(function() {
+  var details = document.querySelectorAll(".details");
+  details.forEach(function (e) {
+    e.outerHTML = "<details><summary>Details</summary>" +
+      e.innerHTML + "</details>";
+  })
+})();
+</script>
