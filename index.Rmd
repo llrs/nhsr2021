@@ -1,8 +1,11 @@
 ---
 title: "Improving (analysis) process: developing packages"
-author: "Lluís Revilla"
+author: |
+ [`r icons::fontawesome("twitter")` Lluís Revilla](https://twitter.com/Lluis_Revilla)
 institute: "CIBEREHD, IDIBAPS"
-date: "2021/11/09"
+date: | 
+ 2021/11/09 <br><br><br>
+ [nhsr2021.llrs.dev](https://nhsr2021.llrs.dev) [`r icons::fontawesome("github")`](https://github.com/llrs/nhsr2021/) 
 language: "en-uk"
 output:
   xaringan::moon_reader:
@@ -79,11 +82,14 @@ something
 
 Much of the progress of humanity has come from simplifying:
 
+
 - Machines: Repeat actions  
 
 - Templates: Repeat information  
 
 - Software: Repeat logic  
+
+![](images/excavator_form_code.jpg)
 
 ???
 
@@ -110,7 +116,7 @@ Science a method of knowledge: there are others like mathematics, philosophy, th
 --
 
 
-.center[ ![Table with data and analysis as axis](https://the-turing-way.netlify.app/_images/reproducible-matrix.jpg) [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
+.center[ ![Table with data and analysis as axis](images/turing_way_reproducible-matrix.jpg) [The Turing Way](https://the-turing-way.netlify.app/reproducible-research/overview/overview-definitions.html "CC-BY The Turing Way" ) ]
 
 
  
@@ -122,19 +128,25 @@ Missing part: code/logic
 
 # Code
 
+.pull-left[
 Code:
 
 - Shareable
 - Easier to understand (sometimes)
 - More modularized
 - Repeat logic
+]
 
-Better reports
+.pull-right[
 
-- Interface 
-- Appearance
+Recommendations:
 
-.middle[Packages!!]
+- [Best practices](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/ "Software carpentery recommendation for scripts")
+- [Developer guidelines for packages](https://devguide.ropensci.org/ "rOpenSci guidelines")
+- [Research Software Engineer](https://society-rse.org/ "Community for research software engineer")
+
+]
+
 
 ???
 
@@ -146,6 +158,14 @@ If reports are your main outcome they can also be automated via knitr parametriz
 
 # From scripts to packages
 
+.center[
+![:scale 60% "Plot comparing internal and open source package based on solution breadth and problem definition"](images/packages_featured.png) [Emily Riederer](https://emilyriederer.netlify.app/post/team-of-packages/)
+]
+
+???
+
+--
+
 Use function (use other's packages)
 
 Write functions
@@ -155,7 +175,8 @@ Write functions
 Analysing some data might lead to a package or not.  
 
 Package should provide some non-trivial solution to other's.
-It might not be worth of publication (on traditional journals) but it might be worth sharing (on Journal of Open Source or just as a pakcage people can install). 
+It might not be worth of publication (on traditional journals) but it might be worth sharing (on Journal of Open Source or just as a package people can install). 
+
 
 ---
 
@@ -173,13 +194,14 @@ Things you repeat (checking column names, match between two tables), steps you c
 
 --
 
+
 .center[
 
-**Small**: functions, `function(x){x+5}` 
-
-**Medium**: package, when some process is always the same or has few options.
-
-**Large**: architecture/workflow related,  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package
+| Project | Use | Example |
+|:---:|:---:|:---:|
+|**Small** | script with functions | `function(x){x+5}` |
+|**Medium** | script with package | script + package |
+|**Large** | architecture/workflow |  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package |
 
 ]
 
@@ -322,11 +344,11 @@ Examples:
 
 - [aurumpipeline](https://github.com/HFAnalyticsLab/aurumpipeline "Package to clean and process patient-level CPRD Aurum" )
 
-
 ???
 
 Having this public or semi-public will make it easier a workmate or someone from the department besides you.
 It will make it easier to collaborate in case you release your package to the public.
+
 
 Internal packages are usually not shared outside the organization.
 
@@ -340,7 +362,19 @@ Install from source each time (via `R CMD INSTALL` or `devtools::install`)
 
 If you have your own Github organization you can use r-universe to gather the packages and make it easier to install them.
 
-TODO: image of a wizard (installing packages)
+You could set up your own internal [CRAN-like repository](https://rstudio.github.io/packrat/custom-repos.html "Instructions for package repositoris")
+
+.center[
+
+![:scale 40% "Window of installing a program on windows by a 'wizard'"](images/wizard_installation.png) [WizardAssistant](https://wizardassistant.com/)
+
+]
+
+???
+
+The main difference between internal and external packages is how are they installed (
+There is a list of [potential soluctions](https://support.rstudio.com/hc/en-us/articles/115000239587-Sharing-Internal-R-Packages).
+Depending on your institutions you might already have a local CRAN or [miniCRAN](https://cran.r-project.org/package=miniCRAN) so it might be easy to add your internal packages to that repository.
 
 --
 
@@ -397,7 +431,7 @@ Not complicated to have packages.
 
 Complicated to be consistent (new people, process change, people leave...)
 
-Packages is just a part that help with being reproducible and replicable, there are others. 
+Packages are just a part that help with being reproducible and replicable, there are others. 
   
 ???
 
