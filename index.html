@@ -66,7 +66,33 @@ And other packages unrelated to research: analysing R bugs ([bugRzilla](https://
 
 ???
 
-something
+You can also find me on [Twitter](https:/twitter.com/Lluis_Revilla) and on [my website](https://llrs.dev).
+
+---
+
+# Index
+
+.pull-left[
+
+.center[
+A bit of background 
+
+![:scale 20% "Image of the sky on the night"](images/background.jpg)
+
+Practical recommendations
+
+![:scale 40% "Image of a wall with lots of tools"](images/practical_tools.jpg)
+
+A step back to see the bigger picture
+]]
+
+.pull-right[
+
+![:scale 80% "Image of a frame with a paraglider behind it"](images/bigger_picture.jpg)
+
+]
+???
+
 
 ---
 
@@ -125,18 +151,19 @@ Code:
 
 - Shareable
 - Easier to understand (sometimes)
-- More modularized
-- Repeat logic
+- Modularizable
 ]
 
 .pull-right[
 
-- [Best practices](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/ "Software carpentery recommendation for scripts")
-- [Developer guidelines for packages](https://devguide.ropensci.org/ "rOpenSci guidelines")
-- [Research Software Engineer](https://society-rse.org/ "Community for research software engineer")
+Recommendations:
 
+- [Follow best practices](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/ "Software carpentery recommendation for scripts"): Decide a style, record dependencies, comment code...
+- Find help at: [Research Software Engineer](https://society-rse.org/ "Community for research software engineer") or other organizations.
+- 
 ]
 
+![](images/practical_tools.jpg)
 
 ???
 
@@ -149,23 +176,21 @@ If reports are your main outcome they can also be automated via knitr parametriz
 # From scripts to packages
 
 .center[
-![:scale 60% "Plot comparing internal and open source package based on solution breadth and problem definition"](images/packages_featured.png) [Emily Riederer](https://emilyriederer.netlify.app/post/team-of-packages/)
+![:scale 60% "Plot comparing internal and open source package based on solution breadth and problem definition internal pacakges are more specific and more workflow-like than open source packages" ](images/packages_featured.png "Comparing internal and open source package based on solution breadth and problem definition") [Emily Riederer](https://emilyriederer.netlify.app/post/team-of-packages/ "Link to post about how to create internal packages")
 ]
 
 ???
-
---
 
 Use function (use other's packages)
 
 Write functions
 
-???
-
-Analysing some data might lead to a package or not.  
+Analysing some data might lead to a package or not (too specific, private logic).  
 
 Package should provide some non-trivial solution to other's.
 It might not be worth of publication (on traditional journals) but it might be worth sharing (on Journal of Open Source or just as a package people can install). 
+
+Check [Emily Rieder's post](https://emilyriederer.netlify.app/post/team-of-packages/) on internal packages
 
 
 ---
@@ -184,14 +209,15 @@ Things you repeat (checking column names, match between two tables), steps you c
 
 --
 
+.indent[ ]
 
 .center[
 
 | Project | Use | Example |
 |:---:|:---:|:---:|
 |**Small** | script with functions | `function(x){x+5}` |
-|**Medium** | script with package | script + package |
-|**Large** | architecture/workflow |  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + own_package |
+|**Medium** | script with package | [script](https://github.com/llrs/TRIM "Code for a project") + [own_package](https://github.com/llrs/integration "Internal package for integration") |
+|**Large** | architecture/workflow |  [targets](https://cran.r-project.org/package=targets "Keeping track of the results") + [renv](https://rstudio.github.io/renv/index.html "Keeping track of packages and enviroment used") + script + own_package |
 
 ]
 
@@ -329,9 +355,7 @@ Problems when editing the same file, I recommend using version control systems.
 
 If it is shared or you are trying to know if some more people might be interested, maybe on github or gitlab.
 
-Examples: 
-
-- [aurumpipeline](https://github.com/HFAnalyticsLab/aurumpipeline "Package to clean and process patient-level CPRD Aurum" )
+Example: [aurumpipeline](https://github.com/HFAnalyticsLab/aurumpipeline "Package to clean and process patient-level CPRD Aurum" )
 
 ???
 
@@ -342,6 +366,16 @@ It will make it easier to collaborate in case you release your package to the pu
 Internal packages are usually not shared outside the organization.
 
 [medicaldata](https://higgi13425.github.io/medicaldata/index.html "Package with datasets for teaching") is another example but this is intended to be used by more people and as such is on CRAN. 
+
+--
+
+Very specific to institution, team, collaborators... which translate in a bit of work on finding what works best for you.
+
+???
+
+Take into consideration both the infrastructure you have, who develops and *maintains* the software and who benefits from it. 
+
+Most research software is run few times and not worth keeping it along.
 
 ---
 
@@ -377,14 +411,17 @@ This also helps to know if the work is reproducible and if the package works wel
 
 # Packages and process are not static
 
-It is not always equal, you might need to modify the package  
-Moving some functions to another package  
-Do not remove functions, who knows when you'll need them back and it complicated to look up on the git history (you'll use git or vsc right?)
+- R is not always equal, you might need to modify the package  
+- Your users (or you) won't have always the same priorities
+- Might need to move some functions to another package
+- Use/set deprecation policies
 
+.center[
 &lt;div class="figure"&gt;
 &lt;img src="images/La_palma_volcano_flow.jpg" alt="Image of the lava flow from palma, showing it exiting the cone, flowing and reaching the sea." width="50%" /&gt;
 &lt;p class="caption"&gt;Source: El País&lt;/p&gt;
 &lt;/div&gt;
+]
 
 ???
 
@@ -401,7 +438,7 @@ At the end the package development goes quiet but there is friction with changes
 
 Packages help trusting the reporting and implementation:
 
-![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png "Link to the image")
+![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png "Reproducibility As A Trust Scale from low overall trust to the higher levels of trust")
 
 
 .right[ [Gabriel Becker, Copyright Genentech Inc. ](https://gmbecker.github.io/MayInstituteKeynote2019/outline.html "Link to the slides with the original source") ]
@@ -422,6 +459,8 @@ Not complicated to have packages.
 Complicated to be consistent (new people, process change, people leave...)
 
 Packages are just a part that help with being reproducible and replicable, there are others. 
+
+![:scale 60% "Hands together"](images/hannah-busing-Zyx1bK9mqmA-unsplash_hands_together.jpg)
   
 ???
 
