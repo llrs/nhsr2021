@@ -83,6 +83,7 @@ You can also find me on [Twitter](https:/twitter.com/Lluis_Revilla) and on [my w
 .pull-left[
 
 .center[
+
 A bit of background 
 
 ![:scale 20% "Image of the sky on the night"](images/background.jpg)
@@ -92,15 +93,14 @@ Practical recommendations
 ![:scale 40% "Image of a wall with lots of tools"](images/practical_tools.jpg)
 
 A step back to see the bigger picture
-]]
+]
+]
 
 .pull-right[
 
-![:scale 80% "Image of a frame with a paraglider behind it"](images/bigger_picture.jpg)
+![:scale 70% "Image of a frame with a paraglider behind it"](images/bigger_picture.jpg)
 
 ]
-???
-
 
 ---
 
@@ -160,6 +160,7 @@ Code:
 - Shareable
 - Easier to understand (sometimes)
 - Modularizable
+- Repeatable (in principle)
 ]
 
 .pull-right[
@@ -167,7 +168,7 @@ Code:
 Recommendations:
 
 - [Follow best practices](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/ "Software carpentery recommendation for scripts"): Decide a style, record dependencies, comment code...
-- Find help at: [Research Software Engineer](https://society-rse.org/ "Community for research software engineer") or other organizations.
+- Find help: at your institution, from [NHS-R community](https://nhsrcommunity.com/r-near-me/ "NHS-R user groups") from organizations like [Research Software Engineer](https://society-rse.org/ "Community for research software engineer") or other organizations.
 - 
 ]
 
@@ -380,6 +381,11 @@ Internal packages are usually not shared outside the organization.
 
 Very specific to institution, team, collaborators... which translate in a bit of work on finding what works best for you.
 
+.center[
+
+![:scale 50% "Image of a monkey thinking"](images/rob-schreckhise-8zdEgWg5JAA-unsplash_monkey_thinking.jpg)
+
+]
 ???
 
 Take into consideration both the infrastructure you have, who develops and *maintains* the software and who benefits from it. 
@@ -468,7 +474,25 @@ Complicated to be consistent (new people, process change, people leave...)
 
 Packages are just a part that help with being reproducible and replicable, there are others. 
 
-![:scale 60% "Hands together"](images/hannah-busing-Zyx1bK9mqmA-unsplash_hands_together.jpg)
+.pull-left[
+![:scale 100% "Hands together"](images/hannah-busing-Zyx1bK9mqmA-unsplash_hands_together.jpg)
+]
+
+.pull-right[
+
+Thank you!
+
+[nhsr2021.llrs.dev](https://nhsr2021.llrs.dev)
+
+
+[`r icons::fontawesome("twitter")` Lluís Revilla](https://twitter.com/Lluis_Revilla/)
+
+[`r icons::fontawesome("github")` llrs](https://github.com/llrs/)
+
+[`r icons::fontawesome("envelope-open-text")` lluis.revilla@ciberehd.org](lluis.revilla@ciberehd.org)
+
+
+]
   
 ???
 
