@@ -485,9 +485,10 @@ Thank you!
 [nhsr2021.llrs.dev](https://nhsr2021.llrs.dev)
 
 
-[`r icons::fontawesome("twitter")` Lluís Revilla](https://twitter.com/Lluis_Revilla/)
+[`r icons::fontawesome("linkedin")`](https://www.linkedin.com/in/lluisrevilla/) [`r icons::fontawesome("twitter")` Lluís Revilla](https://twitter.com/Lluis_Revilla/) 
 
 [`r icons::fontawesome("github")` llrs](https://github.com/llrs/)
+
 
 [`r icons::fontawesome("envelope-open-text")` lluis.revilla@ciberehd.org](lluis.revilla@ciberehd.org)
 
