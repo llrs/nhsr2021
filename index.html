@@ -12,16 +12,16 @@
     <meta name="twitter:title" content="Improving (analysis) process: developing packages"/>
     <meta name="twitter:description" content="Invited talk about creating packages to help with reproducibility and research For NHS-R community"/>
     <meta name="twitter:url" content="https://nhsr2021.llrs.dev"/>
-    <meta name="twitter:image" content="https://ghana_packages.llrs.dev/index_files/figure-html/title_slide_screenshot.png"/>
-    <meta name="twitter:image:alt" content="Image of the first slide for Reviewing packages; how does it work? . Done for the R User Group Ghana on 2021/10 by Lluís Revilla Sancho"/>
+    <meta name="twitter:image" content="https://nhsr2021.llrs.dev/images/first_slide.png"/>
+    <meta name="twitter:image:alt" content="Image of the first slide for Improving (analysis) process: developing packages . Presented for the NHS-R community on 2021/11/09 by Lluís Revilla Sancho"/>
     <meta name="twitter:card" content="summary_large_image"/>
     <meta name="twitter:creator" content="@Lluis_Revilla"/>
     <meta name="twitter:site" content="@Lluis_Revilla"/>
     <meta property="og:title" content="Improving (analysis) process: developing packages"/>
     <meta property="og:description" content="Invited talk about creating packages to help with reproducibility and research For NHS-R community"/>
     <meta property="og:url" content="https://nhsr2021.llrs.dev"/>
-    <meta property="og:image" content="https://ghana_packages.llrs.dev/index_files/figure-html/title_slide_screenshot.png"/>
-    <meta property="og:image:alt" content="Image of the first slide for Reviewing packages; how does it work? . Done for the R User Group Ghana on 2021/10 by Lluís Revilla Sancho"/>
+    <meta property="og:image" content="https://nhsr2021.llrs.dev/images/first_slide.png"/>
+    <meta property="og:image:alt" content="Image of the first slide for Improving (analysis) process: developing packages . Presented for the NHS-R community on 2021/11/09 by Lluís Revilla Sancho"/>
     <meta property="og:type" content="website"/>
     <meta property="og:locale" content="en_US"/>
     <meta property="article:author" content="Lluís Revilla Sancho"/>
@@ -147,8 +147,6 @@ Missing part: code/logic which needs to be the same (Same version, OS, ...)
 # Code
 
 .pull-left[
-Code:
-
 - Shareable
 - Easier to understand (sometimes)
 - Modularizable
@@ -170,6 +168,43 @@ Recommendations:
 Better code benefits the process and the result. 
 
 If reports are your main outcome they can also be automated via knitr parametrized reports or use interactive reports (See Simon Wellesley-miller talk tomorrow)
+
+
+---
+
+# Brief introduction to packages
+
+Slide adapted from a [workshop](https://ghana.llrs.dev/#4) on how to develop packages.
+
+.left-column[
+
+&lt;img src="images/tidyverse_dtplyr.png" title="Tree view of the dtplyr package repository on 2021/08/06." alt="Tree view of the dtplyr package repository on 2021/08/06." width="100%" /&gt;
+
+]
+
+.right-column[
+
+- `.github` folder: Files specific to GitHub (this isn't necessary)
+- A `R` folder with *.R files: your code.
+- A `man` folder with *.rd files: your documentation.
+- A `tests` folder: Check the code of the package.
+- A `vignette` folder: Long documentation; not just examples.
+- A `.Rbuildignore`: A file describing what to omit when building the package.
+- A `DESCRIPTION` file: Summary and description of the package.
+- A `LICENSE` file: The conditions under the package is released.
+- A `NAMESPACE` file: What this package shares and needs.
+- A `NEWS` file: What has changed since last release.
+- A `README`: How to install and why this packages is needed and some basic examples.
+
+]
+
+???
+
+I recommend to look at it, but here are some resources:
+
+- [R extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html "Offical complete instructions"): Official documentation, everything is answered here
+- [R packages](https://r-pkgs.org/ "R pakages"): A book more digestible and using other packages and tools to create packages.
+
 
 ---
 
@@ -227,42 +262,6 @@ Depending on your work if it is more research based probably package around an i
 Because code in research most of them is run just once and few multiple times
 
 If it is more clinical perhaps you do more reporting, and you might be interested on a mix to retrieve data and explore it with reports, plots... 
-
----
-
-# Brief introduction to packages
-
-Slide adapted from a [workshop](https://ghana.llrs.dev/#4) on how to develop packages.
-
-.left-column[
-
-&lt;img src="images/tidyverse_dtplyr.png" title="Tree view of the dtplyr package repository on 2021/08/06." alt="Tree view of the dtplyr package repository on 2021/08/06." width="100%" /&gt;
-
-]
-
-.right-column[
-
-- `.github` folder: Files specific to GitHub (this isn't necessary)
-- A `R` folder with *.R files: your code.
-- A `man` folder with *.rd files: your documentation.
-- A `tests` folder: Check the code of the package.
-- A `vignette` folder: Long documentation; not just examples.
-- A `.Rbuildignore`: A file describing what to omit when building the package.
-- A `DESCRIPTION` file: Summary and description of the package.
-- A `LICENSE` file: The conditions under the package is released.
-- A `NAMESPACE` file: What this package shares and needs.
-- A `NEWS` file: What has changed since last release.
-- A `README`: How to install and why this packages is needed and some basic examples.
-
-]
-
-???
-
-I recommend to look at it, but here are some resources:
-
-- [R extensions](https://cran.r-project.org/doc/manuals/r-release/R-exts.html "Offical complete instructions"): Official documentation, everything is answered here
-- [R packages](https://r-pkgs.org/ "R pakages"): A book more digestible and using other packages and tools to create packages.
-
 
 ---
 
