@@ -137,7 +137,7 @@ Is a systematic enterprise that builds and organizes knowledge in the form of te
 
 ???
 
-Science a method of knowledge: there are others like mathematics, philosophy, theology, ...
+Science is a method of knowledge: there are others like mathematics, philosophy, theology, ...
 
 --
 
@@ -148,7 +148,7 @@ Science a method of knowledge: there are others like mathematics, philosophy, th
  
 
 ???
-Missing part: code/logic
+Missing part: code/logic which needs to be the same (Same version, OS, ...)
 
 ---
 
@@ -169,7 +169,6 @@ Recommendations:
 
 - [Follow best practices](https://swcarpentry.github.io/r-novice-inflammation/06-best-practices-R/ "Software carpentery recommendation for scripts"): Decide a style, record dependencies, comment code...
 - Find help: at your institution, from [NHS-R community](https://nhsrcommunity.com/r-near-me/ "NHS-R user groups") from organizations like [Research Software Engineer](https://society-rse.org/ "Community for research software engineer") or other organizations.
-- 
 ]
 
 ![](images/practical_tools.jpg)
@@ -400,7 +399,9 @@ Install from source each time (via `R CMD INSTALL` or `devtools::install`)
 
 If you have your own Github organization you can use r-universe to gather the packages and make it easier to install them.
 
-You could set up your own internal [CRAN-like repository](https://rstudio.github.io/packrat/custom-repos.html "Instructions for package repositoris")
+You could set up your own internal [CRAN-like repository](https://rstudio.github.io/packrat/custom-repos.html "Instructions for package repositoris").
+
+Once installed use it normally as any other package on your reproducible environment.
 
 .center[
 
@@ -413,12 +414,6 @@ You could set up your own internal [CRAN-like repository](https://rstudio.github
 The main difference between internal and external packages is how are they installed (
 There is a list of [potential soluctions](https://support.rstudio.com/hc/en-us/articles/115000239587-Sharing-Internal-R-Packages).
 Depending on your institutions you might already have a local CRAN or [miniCRAN](https://cran.r-project.org/package=miniCRAN) so it might be easy to add your internal packages to that repository.
-
---
-
-Once installed use it normally as any other package on your reproducible environment.
-
-???
 
 This also helps to know if the work is reproducible and if the package works well for the users (and not just you)
 
@@ -450,7 +445,7 @@ At the end the package development goes quiet but there is friction with changes
 
 # Going back to the big picture
 
-Packages help trusting the reporting and implementation:
+Packages help trusting in the reporting and implementation:
 
 ![Reproducibility As A Trust Scale from low overall trust to the higher levels of trust ](https://gmbecker.github.io/MayInstituteKeynote2019/trustscale3.png "Reproducibility As A Trust Scale from low overall trust to the higher levels of trust")
 
